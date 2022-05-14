@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>Android-10源码编译</title>
+      <link href="/2022/05/13/android-10-yuan-ma-bian-yi/"/>
+      <url>/2022/05/13/android-10-yuan-ma-bian-yi/</url>
+      
+        <content type="html"><![CDATA[<p>选择下载Android源代码<a href="https://source.android.com/setup/start/build-numbers?hl=zh-cn">AOSP分支</a>，推荐使用清华镜像：<a href="https://mirrors.tuna.tsinghua.edu.cn/help/AOSP/">https://mirrors.tuna.tsinghua.edu.cn/help/AOSP/</a>  使用教程清华源已经详细给出，我这里选择的android-10.0.0_r40</p><h2 id="使用repo工具"><a href="#使用repo工具" class="headerlink" title="使用repo工具"></a>使用repo工具</h2><pre class=" language-bash"><code class="language-bash">curl https://mirrors.tuna.tsinghua.edu.cn/git/git-repo -o repo<span class="token function">chmod</span> +x repo<span class="token function">export</span> REPO_URL<span class="token operator">=</span><span class="token string">'https://mirrors.tuna.tsinghua.edu.cn/git/git-repo'</span>repo init -u https://mirrors.tuna.tsinghua.edu.cn/git/AOSP/platform/manifest -b android-10.0.0_r40repo <span class="token function">sync</span></code></pre><h2 id="下载对应驱动"><a href="#下载对应驱动" class="headerlink" title="下载对应驱动"></a>下载对应驱动</h2><p><a href="https://developers.google.com/android/drivers#taimenqp1a.190711.019">https://developers.google.com/android/drivers#taimenqp1a.190711.019</a></p><p>将驱动解压到源码根目录下</p><pre class=" language-bash"><code class="language-bash">./extract-google_devices-blueline.sh./extract-qcom-blueline.sh</code></pre><p>以按ctrl+c进行中断，在此会提示需要输入I ACCEPT</p><h2 id="编译Android源码"><a href="#编译Android源码" class="headerlink" title="编译Android源码"></a>编译Android源码</h2><pre class=" language-bash"><code class="language-bash"><span class="token function">source</span> build/envsetup.shlunch<span class="token function">make</span> -j12</code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Android源码 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
