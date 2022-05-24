@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Android-10源码编译, cxf">
-    <meta name="description" content="AOSP_10.0.0_r40编译记录">
+    <meta name="keywords" content="Mariana Trench的使用, cxf">
+    <meta name="description" content="Mariana Trench 以Android安全为中心的静态分析平台，该工具提供可扩展的全局污点分析，并且支持自定义规则,强大之处是可以帮我们进行代码跟踪，比较适合挖Android漏洞。可以用他帮我们静态扫出可能存在的漏洞，然后人工验证。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +19,7 @@
 
     
 
-    <title>Android-10源码编译 | cxf</title>
+    <title>Mariana Trench的使用 | cxf</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -195,12 +195,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/images/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Android-10源码编译</h1>
+                    <h1 class="description center-align post-title">Mariana Trench的使用</h1>
                 </div>
             </div>
         </div>
@@ -316,8 +316,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Android%E6%BA%90%E7%A0%81/">
-                                <span class="chip bg-color">Android源码</span>
+                            <a href="/tags/Android%E6%BC%8F%E6%B4%9E/">
+                                <span class="chip bg-color">Android漏洞</span>
                             </a>
                         
                     </div>
@@ -332,7 +332,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-05-13
+                    2022-05-15
                 </div>
                 
 
@@ -353,22 +353,16 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>选择下载Android源代码<a target="_blank" rel="noopener" href="https://source.android.com/setup/start/build-numbers?hl=zh-cn">AOSP分支</a>，推荐使用清华镜像：<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/help/AOSP/">https://mirrors.tuna.tsinghua.edu.cn/help/AOSP/</a>  使用教程清华源已经详细给出，我这里选择的android-10.0.0_r40</p>
-<h2 id="使用repo工具"><a href="#使用repo工具" class="headerlink" title="使用repo工具"></a>使用repo工具</h2><pre class=" language-bash"><code class="language-bash">curl https://mirrors.tuna.tsinghua.edu.cn/git/git-repo -o repo
-<span class="token function">chmod</span> +x repo
-<span class="token function">export</span> REPO_URL<span class="token operator">=</span><span class="token string">'https://mirrors.tuna.tsinghua.edu.cn/git/git-repo'</span>
-repo init -u https://mirrors.tuna.tsinghua.edu.cn/git/AOSP/platform/manifest -b android-10.0.0_r40
-repo <span class="token function">sync</span>
+                <p>Mariana Trench 以Android安全为中心的静态分析平台，该工具提供可扩展的全局污点分析，并且支持自定义规则,强大之处是可以帮我们进行代码跟踪，比较适合挖Android漏洞。<br>可以用他帮我们静态扫出可能存在的漏洞，然后人工验证。</p>
+<p>官方文档： <a target="_blank" rel="noopener" href="https://mariana-tren.ch/docs/getting-started/">https://mariana-tren.ch/docs/getting-started/</a></p>
+<h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><p>使用python的pip直接安装即可(注意：Mac不支持 pip install，win上安装似乎也是有些问题，尽量使用linux)</p>
+<pre class=" language-bash"><code class="language-bash">pip <span class="token function">install</span> mariana-trench
 </code></pre>
-<h2 id="下载对应驱动"><a href="#下载对应驱动" class="headerlink" title="下载对应驱动"></a>下载对应驱动</h2><p><a target="_blank" rel="noopener" href="https://developers.google.com/android/drivers#taimenqp1a.190711.019">https://developers.google.com/android/drivers#taimenqp1a.190711.019</a></p>
-<p>将驱动解压到源码根目录下</p>
-<pre class=" language-bash"><code class="language-bash">./extract-google_devices-blueline.sh
-./extract-qcom-blueline.sh
-</code></pre>
-<p>以按ctrl+c进行中断，在此会提示需要输入I ACCEPT</p>
-<h2 id="编译Android源码"><a href="#编译Android源码" class="headerlink" title="编译Android源码"></a>编译Android源码</h2><pre class=" language-bash"><code class="language-bash"><span class="token function">source</span> build/envsetup.sh
-lunch
-<span class="token function">make</span> -j12
+<p>官方给出的demo我们就不试用了，有兴趣的可以移步至官网，这里我们测试下其他的应用。</p>
+<p>使用jadx应用进行反编译，快捷键ctrl e导出源代码<br>##<br><img src="../../images/d1a38eddac680436d4303d54c46c8fdff18fa0f0484359d10ccc67eb3fb70971.png" alt="图 1">  </p>
+<pre><code>mariana-trench \
+  --system-jar-configuration-path=/home/cxf/桌面/android_jar/android.jar --apk-path=test.apk \
+  --source-root-directory=app/src/main/java
 </code></pre>
 
                 
@@ -396,7 +390,7 @@ lunch
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2022/05/13/android-10-yuan-ma-bian-yi/">http://example.com/2022/05/13/android-10-yuan-ma-bian-yi/</a>
+                    <a href="http://example.com/2022/05/15/mariana-de-shi-yong/">http://example.com/2022/05/15/mariana-de-shi-yong/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -434,8 +428,8 @@ lunch
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Android%E6%BA%90%E7%A0%81/">
-                                    <span class="chip bg-color">Android源码</span>
+                                <a href="/tags/Android%E6%BC%8F%E6%B4%9E/">
+                                    <span class="chip bg-color">Android漏洞</span>
                                 </a>
                             
                         </div>
@@ -624,13 +618,13 @@ lunch
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/05/15/mariana-de-shi-yong/">
+                <a href="/2022/05/19/ru-he-kua-jin-an-quan-xing-ye/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Mariana Trench的使用">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="如何跨进安全行业-走进移动安全(1)">
                         
-                        <span class="card-title">Mariana Trench的使用</span>
+                        <span class="card-title">如何跨进安全行业-走进移动安全(1)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -641,7 +635,7 @@ lunch
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-05-15
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-05-19
                         </span>
                         <span class="publish-author">
                             
@@ -652,21 +646,13 @@ lunch
                     </div>
                 </div>
                 
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Android%E6%BC%8F%E6%B4%9E/">
-                        <span class="chip bg-color">Android漏洞</span>
-                    </a>
-                    
-                </div>
-                
             </div>
         </div>
         
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
                 <a href="/2022/05/13/android-10-yuan-ma-bian-yi/">
@@ -695,7 +681,6 @@ lunch
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
